@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/NKUBITOYIMANZI/url_shortening_App#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "docker-cli": "^0.0.2",
     "express": "^4.18.2",
     "http": "^0.0.1-security",
