@@ -1,16 +1,29 @@
 {
-  "name": "shorturl",
+  "name": "url_shortening_app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NKUBITOYIMANZI/url_shortening_App.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NKUBITOYIMANZI/url_shortening_App/issues"
+  },
+  "homepage": "https://github.com/NKUBITOYIMANZI/url_shortening_App#readme",
   "dependencies": {
+    "docker-cli": "^0.0.2",
     "express": "^4.18.2",
-    "mysql": "^2.18.1"
-  }
+    "http": "^0.0.1-security",
+    "mongodb": "^5.7.0",
+    "node-fetch": "^3.3.2",
+    "randomstring": "^1.3.0"
+  },
+  "keywords": [],
+  "description": ""
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>URL Shortener</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">URL Shortener</h1>
+        <div class="form-group">
+            <input type="text" class="form-control" id="longUrlInput" placeholder="Enter long URL">
+        </div>
+        <button class="btn btn-primary" onclick="shortenUrl()">Shorten</button>
+        <p class="mt-3" id="shortUrl"></p>
+    </div>
+
+    <script>
+        function shortenUrl() {
+            const longUrl = document.getElementById("longUrlInput").value;
+            const apiKey = "dad69e0ef323fa0781f3c82d2ab198c694ea1787";
+            const apiUrl = "https://api-ssl.bitly.com/v4/shorten";
+
+            $.ajax({
+                url: apiUrl,
+                type: "POST",
+                dataType: "json",
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + apiKey);
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                },
+                data: JSON.stringify({
+                    long_url: longUrl
+                }),
+                success: function(response) {
+                    document.getElementById("shortUrl").innerHTML = response.id;
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+    <!-- Add Bootstrap JS and jQuery scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
